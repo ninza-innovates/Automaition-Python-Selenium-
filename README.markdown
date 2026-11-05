@@ -14,7 +14,7 @@ This Python script uses Selenium WebDriver to automate data extraction from the 
 - Logs all actions and errors to a file (`icici_extract.log`).
 
 ## Prerequisites
-- **Python 3.6+**: Ensure Python is installed on your system.
+- **Python 3.10+**: Ensure Python is installed on your system. The pinned Selenium release requires 3.10 or newer.
 - **Google Chrome**: The script uses Chrome WebDriver for browser automation.
 - **Required Python Packages**:
   - `selenium`
@@ -27,13 +27,13 @@ This Python script uses Selenium WebDriver to automate data extraction from the 
 
 ## Setup Instructions
 1. **Install Python**:
-   - Download and install Python 3.6 or higher from [python.org](https://www.python.org/downloads/).
+   - Download and install Python 3.10 or higher from [python.org](https://www.python.org/downloads/).
    - Ensure `pip` is available.
 
 2. **Install Dependencies**:
    - Run the following command to install required Python packages:
      ```bash
-     pip install selenium webdriver_manager python-dotenv retrying tabulate
+     pip install -r requirements.txt
      ```
 
 3. **Set Up Environment Variables**:
