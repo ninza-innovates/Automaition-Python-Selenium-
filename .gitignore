@@ -1,3 +1,9 @@
 .env
 package-lock.json
 node_modules/
+
+# Session and runtime artifacts
+*cookies*
+*.log
+__pycache__/
+venv/
