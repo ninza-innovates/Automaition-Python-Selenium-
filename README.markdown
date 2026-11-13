@@ -1,6 +1,6 @@
 # ICICI Direct Data Scraper
 
-This Python script uses Selenium WebDriver to automate data extraction from the ICICI Direct website. It logs into the ICICI Direct platform, switches between specified sub-accounts, and downloads data such as Trade Book, Portfolio Summary, Order Book (displayed as a table and saved as CSV), and additional data (My Portfolio and Orderbook) for a specific account. The script organizes downloaded files into account-specific directories, includes logging, error handling, and file consolidation features.
+`main.py` uses Selenium WebDriver to automate data extraction from the ICICI Direct website. It logs into the ICICI Direct platform, switches between specified sub-accounts, and downloads data such as Trade Book, Portfolio Summary, Order Book (displayed as a table and saved as CSV), and additional data (My Portfolio and Orderbook) for a specific account. The script organizes downloaded files into account-specific directories, includes logging, error handling, and file consolidation features.
 
 ## Features
 - Logs into ICICI Direct with provided credentials.
@@ -37,7 +37,7 @@ This Python script uses Selenium WebDriver to automate data extraction from the 
      ```
 
 3. **Set Up Environment Variables**:
-   - Create a `.env` file in the same directory as the script with the following content:
+   - Create a `.env` file in the repository root, next to `main.py`, with the following content:
      ```plaintext
      ICICI_USERNAME=your_icici_username
      ICICI_PASSWORD=your_icici_password
@@ -53,18 +53,19 @@ This Python script uses Selenium WebDriver to automate data extraction from the 
    - Consolidated CSVs (if enabled) are saved directly in the `downloads` directory.
 
 ## How to Run the Script
-1. **Save the Script**:
-   - Save the provided Python script as `icici_scraper.py` (or another name of your choice).
+1. **Use the script in this repository**:
+   - Run `main.py` from the repository root. That file matches the configuration and per-account `downloads` layout described below.
+   - `icici_extract.py` is a separate variant. It writes every CSV into one `downloads` directory (`CONFIG['download_dir']`) instead of an account subdirectory.
 
 2. **Prepare the Environment**:
    - Ensure the `.env` file is correctly configured with your ICICI Direct credentials.
    - Verify that all dependencies are installed.
 
 3. **Run the Script**:
-   - Open a terminal or command prompt in the directory containing the script.
-   - Execute the script using Python:
+   - Open a terminal in the repository root (the directory that contains `main.py` and `.env`).
+   - Execute:
      ```bash
-     python icici_scraper.py
+     python main.py
      ```
 
 4. **Manual OTP Entry**:
@@ -87,7 +88,7 @@ The script includes a `CONFIG` dictionary with the following options:
 - `login_timeout`: Maximum time to wait for login and OTP entry (default: 180 seconds).
 - `switch_timeout`: Maximum time to wait for account switching (default: 60 seconds).
 
-You can modify these settings in the `CONFIG` dictionary within the script to suit your needs.
+You can modify these settings in the `CONFIG` dictionary in `main.py`.
 
 ## Sub-Accounts
 The script processes the following sub-accounts (defined in `SUB_ACCOUNTS`):
@@ -97,7 +98,7 @@ The script processes the following sub-accounts (defined in `SUB_ACCOUNTS`):
 
 For the `NPNRO` account, the script additionally downloads My Portfolio and Orderbook CSVs.
 
-To process different sub-accounts, update the `SUB_ACCOUNTS` list in the script with the appropriate account IDs.
+To process different sub-accounts, update the `SUB_ACCOUNTS` list in `main.py` with the appropriate account IDs.
 
 ## Notes
 - **Manual OTP Handling**: The script relies on manual OTP entry on the ICICI Direct website. Ensure you are available to enter the OTP when prompted.
